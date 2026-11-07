@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="account-actions mb-4"><a class="mq-button mq-primary" href="{{ url_for('main.dashboard') }}">Tổng quan học tập</a><a class="mq-button mq-secondary" href="{{ url_for('cases.index') }}">Thư viện ca</a></div>
+<div class="account-heading"><div><p class="eyebrow">KHÔNG GIAN CÁ NHÂN</p><h1>Chào {{ current_user.display_name }}</h1><p class="subtle">Tài khoản của bạn đã sẵn sàng.</p></div><a class="mq-button mq-secondary" href="{{ url_for('auth.password') }}"><i class="bi bi-key" aria-hidden="true"></i> Đổi mật khẩu</a></div>
+<div class="account-grid">
+  <section class="mq-panel account-card"><span class="auth-icon"><i class="bi bi-person" aria-hidden="true"></i></span><h2>Thông tin tài khoản</h2>
+    <dl class="account-details"><div><dt>Email</dt><dd>{{ current_user.email_normalized }}</dd></div><div><dt>Vai trò</dt><dd>{{ 'Quản trị viên' if current_user.role == 'ADMIN' else 'Học viên' }}{% if current_user.is_test_account %}<span class="account-tag">Kiểm thử</span>{% endif %}</dd></div><div><dt>Trạng thái</dt><dd><span class="status-pill active">Đang hoạt động</span></dd></div><div><dt>Tham gia</dt><dd>{{ current_user.created_at|vietnam_time }} · giờ Việt Nam</dd></div></dl>
+  </section>
+  <section class="mq-panel account-card explore-card"><p class="eyebrow">PHÒNG THỰC HÀNH CỦA BẠN</p><h2>Sẵn sàng cho cuộc trò chuyện?</h2><p class="subtle">Chọn ca được cấp cho tài khoản, hỏi chuyện bệnh nhân và nộp tổng kết để nhận góp ý từ AI Tutor khi chức năng này được bật.</p><p class="subtle">Bạn có thể mở lại những lượt đã lưu ở danh sách phía dưới.</p><div class="account-actions"><a class="mq-button mq-primary" href="{{ url_for('cases.index') }}">Chọn ca thực hành <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>{% if current_user.role == 'ADMIN' %}<a class="mq-button mq-secondary" href="{{ url_for('admin.users') }}">Quản lý tài khoản</a>{% endif %}</div></section>
+</div>
+<section class="mq-panel account-card recent-panel"><div class="section-heading"><div><p class="eyebrow">DỮ LIỆU RIÊNG CỦA BẠN</p><h2>Lượt thực hành đã lưu gần đây</h2></div></div>
+{% if recent %}<ul class="session-list">{% for item, title in recent %}<li><div><strong>{{ title }}</strong><p>{{ item.started_at|vietnam_time }} · {{ {'ACTIVE':'Đang thực hành','COMPLETED':'Đã hoàn tất','ABANDONED':'Đã bỏ lượt'}[item.status] }}</p></div><a class="text-link" href="{{ url_for('simulation.session_detail', session_id=item.id) }}">Xem hội thoại <i class="bi bi-arrow-right" aria-hidden="true"></i></a></li>{% endfor %}</ul>
+{% else %}<div class="account-empty"><i class="bi bi-journal-text" aria-hidden="true"></i><h3>Chưa có lượt thực hành được lưu</h3><p>Hội thoại thử trong phòng xem trước không xuất hiện ở đây.</p></div>{% endif %}</section>
+{% endblock %}

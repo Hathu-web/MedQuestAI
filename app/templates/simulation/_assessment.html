@@ -1,0 +1,38 @@
+<section class="mq-panel account-card mt-4" id="assessment">
+  {% set assessment = saved.assessment %}
+  <p class="eyebrow">AI TUTOR · PHẢN HỒI SAU THỰC HÀNH</p>
+  <h2>Kết quả đánh giá</h2>
+  <p class="subtle">Điểm tham khảo theo tiêu chí của ca, giúp bạn cải thiện cách hỏi và tổng kết. Người hướng dẫn cần xem lại nếu dùng làm điểm chính thức.</p>
+  {% if saved.mode == 'TEST' %}<p class="preview-notice">Đây là lượt TEST; điểm không tính vào thống kê học tập.</p>{% endif %}
+  {% if assessment.status == 'VALID' %}
+    <p class="display-6"><strong>{{ '%g'|format(assessment.score) }}/100</strong></p>
+    <p class="subtle">Đạt: toàn bộ điểm tiêu chí · Đạt một phần: một nửa · Chưa đạt: 0 điểm.</p>
+  {% elif assessment.status == 'NEEDS_REVIEW' %}
+    <p class="preview-notice">Cần người hướng dẫn xem lại: có tiêu chí chưa đủ căn cứ. Chưa chốt tổng điểm.</p>
+  {% elif assessment.status == 'PROCESSING' %}
+    <p>AI đang chấm. <a href="{{ url_for('simulation.session_detail', session_id=saved.id, _anchor='assessment') }}">Tải lại để xem kết quả</a>.</p>
+  {% elif assessment.status == 'ERROR' %}
+    <p class="preview-notice">Chưa chấm thành công. Tổng kết và hội thoại vẫn được giữ; không ghi thành điểm 0.</p>
+    {% if assessment.message %}<p>{{ assessment.message }}</p>{% endif %}
+  {% elif not assessment.enabled %}
+    <p class="subtle">Chức năng chấm tự động chưa được bật cho hệ thống này.</p>
+  {% else %}<p>Chưa có kết quả chấm cho lượt đã hoàn tất này.</p>{% endif %}
+  {% for item in assessment['items'] %}
+    <article class="info-block">
+      <h3 class="h5">{{ item.code }} · {{ item.description }}</h3>
+      <p><strong>{{ {'ACHIEVED':'Đạt','PARTIAL':'Đạt một phần','MISSED':'Chưa đạt','UNDETERMINED':'Chưa đủ căn cứ'}[item.level] }}</strong>
+        · {% if item.points is not none %}{{ '%g'|format(item.points) }}{% else %}—{% endif %}/{{ item.weight }} điểm</p>
+      <p>{{ item.reason }}</p>
+      {% if item.evidence %}<details><summary>Xem dẫn chứng trong bài của bạn</summary>
+        {% for proof in item.evidence %}<p class="mt-2"><strong>{{ proof.label }}</strong></p><blockquote>{{ proof.quote }}</blockquote>{% endfor %}
+      </details>{% elif item.level == 'MISSED' %}<p class="subtle">Chưa tìm thấy dẫn chứng đáp ứng tiêu chí trong hồ sơ đã nộp.</p>{% endif %}
+      <p class="mt-2"><strong>Gợi ý luyện tập:</strong> {{ item.suggestion }}</p>
+    </article>
+  {% endfor %}
+  {% if assessment.can_request %}
+    <form method="post" action="{{ url_for('simulation.assess_session', session_id=saved.id) }}" class="mt-3">
+      {{ assessment_form.hidden_tag() }}
+      <button class="mq-button mq-primary" type="submit">{{ 'Thử chấm lại' if assessment.status == 'ERROR' else 'Chấm lượt đã nộp' }}</button>
+    </form>
+  {% elif assessment.status == 'ERROR' %}<p class="subtle">Giữ hồ sơ này để người hướng dẫn kiểm tra hoặc quản trị viên kiểm tra cấu hình.</p>{% endif %}
+</section>

@@ -1,0 +1,16 @@
+{% extends 'auth/layout.html' %}
+{% from 'auth/_fields.html' import field_row %}
+{% block auth_content %}
+<span class="auth-icon"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+<p class="eyebrow">BẮT ĐẦU HÀNH TRÌNH THỰC HÀNH</p><h2 id="form-title">Tạo tài khoản học viên</h2>
+<p class="auth-description">Một tài khoản để theo dõi quá trình học của bạn.</p>
+<form method="post" action="{{ url_for('auth.register') }}" class="auth-form" novalidate>
+  {{ form.hidden_tag() }}
+  {{ field_row(form.display_name, 'nickname', autofocus=true) }}
+  {{ field_row(form.email, 'email') }}
+  {{ field_row(form.password, 'new-password', 'Dùng từ 12 đến 128 ký tự.') }}
+  {{ field_row(form.password_confirm, 'new-password') }}
+  {{ form.submit(class='mq-button mq-primary auth-submit') }}
+</form>
+<p class="auth-switch">Đã có tài khoản? <a href="{{ url_for('auth.login') }}">Đăng nhập</a></p>
+{% endblock %}

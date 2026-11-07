@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="mq-panel password-card"><p class="eyebrow">XÁC NHẬN THAO TÁC</p><h1>{{ 'Khóa tài khoản học viên' if form.status.data == 'LOCKED' else 'Mở lại tài khoản học viên' }}</h1><p><strong>{{ target.display_name }}</strong><br><span class="subtle">{{ target.email_normalized }}</span></p>
+{% if form.status.data == 'LOCKED' %}<p>Tài khoản sẽ không thể đăng nhập. Các phiên đang mở sẽ hết hiệu lực ở yêu cầu tiếp theo; dữ liệu đã lưu được giữ nguyên.</p>{% else %}<p>Học viên có thể đăng nhập lại bằng mật khẩu hiện tại. Những phiên cũ vẫn hết hiệu lực.</p>{% endif %}
+{% if error %}<p class="field-error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" action="{{ url_for('admin.user_status', user_id=target.id) }}">{{ form.hidden_tag() }}<div class="account-actions"><a class="mq-button mq-secondary" href="{{ url_for('admin.users') }}">Quay lại</a>{% if not error %}{{ form.submit(class='mq-button ' + ('mq-danger' if form.status.data == 'LOCKED' else 'mq-primary')) }}{% endif %}</div></form></section>
+{% endblock %}

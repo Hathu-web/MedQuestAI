@@ -1,0 +1,4 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="error-state"><span class="error-code">{{ status }}</span><p class="eyebrow">MEDQUEST AI</p><h1>{{ title }}</h1><p>{{ message }}</p><a class="mq-button mq-primary" href="{{ url_for('main.index') }}"><i class="bi bi-arrow-left" aria-hidden="true"></i> Về tổng quan</a></section>
+{% endblock %}

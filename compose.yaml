@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      target: runtime
+    image: medquest-ai:local
+    env_file:
+      - .env.docker
+    environment:
+      MEDQUEST_ENV: production
+      MEDQUEST_INSTANCE_PATH: /data
+      DATABASE_URL: sqlite:////data/medquest.sqlite
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - medquest_data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 360s
+
+volumes:
+  medquest_data:

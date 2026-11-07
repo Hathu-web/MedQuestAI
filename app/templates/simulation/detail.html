@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="account-heading">
+  <div>
+    <p class="eyebrow">LƯỢT #{{ saved.id }} · {{ saved.mode }} · PHIÊN BẢN {{ saved.case.version_no }}</p>
+    <h1>{{ saved.case.title }}</h1>
+    <p class="subtle">{{ saved.started_at|vietnam_time }} · {{ {'ACTIVE':'Đang thực hành','COMPLETED':'Đã hoàn tất','ABANDONED':'Đã bỏ lượt'}[saved.status] }}</p>
+  </div>
+  <a class="text-link" href="{{ url_for('main.dashboard') }}">Về tổng quan học tập</a>
+</div>
+<p class="preview-notice">{% if saved.provider == "fake" %}Chế độ phản hồi mẫu · RAG chưa bật.{% elif saved.provider == "rag_demo" %}RAG chạy thử · Trích dữ liệu từ database, chưa dùng LLM.{% elif saved.dialogue_mode == "OPEN_PATIENT" %}Bệnh nhân AI · Bạn có thể hỏi tự do và hỏi tiếp theo nội dung vừa trao đổi.{% else %}RAG + LLM · Trả lời dựa trên dữ liệu được phép của ca.{% endif %} Hội thoại trong lượt này được lưu.</p>
+{% if error %}<div class="alert alert-danger" role="alert">{{ error }} <a href="{{ url_for('simulation.session_detail', session_id=saved.id) }}">Tải lại lượt</a></div>{% endif %}
+<div class="room-grid saved-practice">
+  <aside class="mq-panel patient-panel">
+    <div class="panel-heading"><i class="bi bi-person-heart" aria-hidden="true"></i><h2>Hồ sơ ban đầu</h2></div>
+    <h3 class="case-title">{{ saved.case.patient.name }}</h3>
+    <p class="subtle">{{ saved.case.patient.age }} tuổi · {{ saved.case.patient.gender }}</p>
+    <div class="info-block"><span>Lý do đến trao đổi</span><p>{{ saved.case.reason }}</p></div>
+    <div class="info-block"><span>Bối cảnh</span><p>{{ saved.case.context }}</p></div>
+    <h3 class="h6 mt-3">Thông tin đã tìm hiểu</h3>
+    {% for fact in saved.facts %}
+      <div class="info-block"><p>{{ fact.value }}</p>{% if fact.knowledge == 'UNKNOWN' %}<span>Thông tin chưa xác định</span>{% endif %}</div>
+    {% else %}<p class="subtle">Chưa có thông tin bổ sung.</p>{% endfor %}
+  </aside>
+  <section class="mq-panel conversation-panel" id="conversation">
+    <div class="patient-scene"><img src="{{ saved.case.patient.image_url }}" alt="Bệnh nhân giả lập {{ saved.case.patient.name }}" width="1672" height="941"><span class="patient-scene-tag">{{ saved.case.patient.name }}</span></div>
+    <div class="chat-heading"><h2>Hội thoại đã lưu</h2><span>{{ saved.turn_index }}/{{ saved.max_turns }} lượt hỏi đáp</span></div>
+    <div class="saved-room-log">
+      {% for message in saved.messages %}
+        <article class="chat-entry {{ 'learner-message' if message.sender == 'LEARNER' else '' }}"><div><span class="speaker-name">{{ 'Bạn' if message.sender == 'LEARNER' else 'Ghi chú ca thực hành' if message.reply_mode == 'rag_missing' else saved.case.patient.name }}</span><p class="message-bubble">{{ message.display_text }}</p>{% if message.sources %}<details class="source-details"><summary>Nguồn dữ liệu của câu trả lời</summary>{% for source in message.sources %}<p><strong>[{{ source.n }}] {{ source.label }}</strong><br>{{ source.text }}</p>{% endfor %}</details>{% endif %}{% if message.sender == "PATIENT" and message.reply_mode in ("rag_demo", "rag_llm", "rag_patient", "rag_dialogue") %}<small class="subtle">{{ "Trích dữ liệu — không dùng LLM" if message.reply_mode == "rag_demo" else "AI bệnh nhân · trò chuyện" if message.reply_mode == "rag_dialogue" else "Phản hồi LLM có nguồn" }}</small>{% endif %}</div></article>
+      {% else %}<p class="subtle">Chưa có tin nhắn được ghi nhận.</p>{% endfor %}
+    </div>
+    <div class="composer">
+      {% if saved.can_send %}
+        <form method="post" action="{{ url_for('simulation.send_message', session_id=saved.id) }}" class="saved-message-form">
+          {{ message_form.hidden_tag() }}
+          {{ message_form.text.label(class_='form-label') }}
+          {{ message_form.text(class_='auth-input', rows=3, maxlength=2000, required=true, placeholder='Nhập một câu hỏi hoặc một ý trao đổi…', aria_describedby='message-help') }}
+          {% for text_error in message_form.text.errors %}<p class="field-error">{{ text_error }}</p>{% endfor %}
+          <p class="field-hint" id="message-help">{% if saved.dialogue_mode == 'OPEN_PATIENT' %}Hãy hỏi theo cách của bạn, hỏi tiếp hoặc làm rõ điều bệnh nhân vừa nói. Tối đa 2.000 ký tự mỗi tin.{% else %}Mỗi tin nhắn một ý, tối đa 2.000 ký tự. Bộ phản hồi mẫu chỉ nhận các cách hỏi cơ bản.{% endif %}</p>
+          <button class="mq-button mq-primary mt-3" type="submit">Gửi câu hỏi <i class="bi bi-send" aria-hidden="true"></i></button>
+        </form>
+      {% elif saved.status == 'ACTIVE' %}<p class="subtle mb-0">Đã đủ 20 lượt hỏi đáp. Bạn có thể tóm tắt và hoàn tất lượt ở phần bên dưới.</p>
+      {% else %}<p class="subtle mb-0">Lượt này đã kết thúc. Bạn có thể đọc lại hội thoại đã lưu.</p>{% endif %}
+    </div>
+  </section>
+  <aside class="mq-panel patient-panel">
+    <div class="panel-heading"><i class="bi bi-journal-check" aria-hidden="true"></i><h2>Nhiệm vụ</h2></div>
+    <ul class="case-objectives">{% for goal in saved.case.objectives %}<li>{{ goal }}</li>{% endfor %}</ul>
+    {% if saved.mode == 'TEST' %}<p class="preview-notice">Lượt kiểm thử không tính vào kết quả học tập.</p>{% endif %}
+    {% if saved.status == 'ACTIVE' %}
+      <h3 class="h6 mt-3">Hành động khả dụng</h3>
+      {% for option, form in action_forms %}
+        <form method="post" action="{{ url_for('simulation.send_action', session_id=saved.id) }}" class="mb-3">
+          {{ form.hidden_tag() }}<button class="mq-button mq-secondary w-100" type="submit">{{ option.label }}</button>
+        </form>
+      {% else %}<p class="subtle">Chưa có hành động thêm ở thời điểm này.</p>{% endfor %}
+      <details class="mt-3"><summary>Bỏ lượt này</summary>
+        <p class="subtle mt-2">Hội thoại vẫn được giữ để đọc lại. Sau khi xác nhận, bạn không thể tiếp tục lượt này.</p>
+        <form method="post" action="{{ url_for('simulation.close_session', session_id=saved.id) }}">
+          {{ abandon_form.hidden_tag() }}<input type="hidden" name="summary" value="">
+          <button class="mq-button mq-danger" type="submit">Xác nhận bỏ lượt</button>
+        </form>
+      </details>
+    {% endif %}
+  </aside>
+</div>
+<section class="mq-panel account-card mt-4">
+  <h2>Tổng kết lượt thực hành</h2>
+  {% if saved.status == 'ACTIVE' %}
+    <form method="post" action="{{ url_for('simulation.close_session', session_id=saved.id) }}">
+      {{ close_form.hidden_tag() }}
+      {{ close_form.summary.label(class_='form-label') }}
+      {{ close_form.summary(class_='auth-input', rows=5, maxlength=4000, required=true, placeholder='Ghi dữ kiện đã biết, thông tin còn thiếu và điều cần hỏi thêm.') }}
+      {% for summary_error in close_form.summary.errors %}<p class="field-error">{{ summary_error }}</p>{% endfor %}
+      <p class="subtle mt-2">Hoàn tất sẽ lưu bản tóm tắt và đóng lượt. Nếu AI Tutor đã bật, hệ thống sẽ chấm theo các tiêu chí của ca.</p>
+      <button class="mq-button mq-primary" type="submit">Lưu tóm tắt và hoàn tất lượt</button>
+    </form>
+  {% elif saved.summary is not none %}<p class="saved-summary">{{ saved.summary }}</p><p class="subtle">Bản tóm tắt đã được lưu.</p>
+  {% else %}<p class="subtle">Lượt đã bỏ; chưa có bản tóm tắt được nộp.</p>{% endif %}
+</section>
+{% if saved.assessment %}
+  {% include 'simulation/_assessment.html' %}
+{% endif %}
+{% endblock %}

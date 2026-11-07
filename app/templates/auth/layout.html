@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="auth-layout">
+  <section class="auth-story" aria-labelledby="auth-story-title">
+    <p class="eyebrow">KHÔNG GIAN HỌC TẬP CỦA BẠN</p>
+    <h1 id="auth-story-title">Mỗi câu hỏi.<br>Một bước <span>thấu hiểu.</span></h1>
+    <p>Lắng nghe, đặt câu hỏi và rèn luyện cách trao đổi với bệnh nhân trong một không gian mô phỏng.</p>
+    <div class="auth-portrait"><img src="{{ url_for('static', filename='images/patient-female.png') }}" width="1672" height="941" alt="Bệnh nhân nữ giả lập đang chờ trò chuyện"><span><i class="bi bi-chat-heart" aria-hidden="true"></i> Bắt đầu từ việc lắng nghe</span></div>
+    <p class="auth-story-note"><i class="bi bi-shield-check" aria-hidden="true"></i> Tài khoản riêng cho hành trình thực hành của bạn.</p>
+  </section>
+  <section class="mq-panel auth-card" aria-labelledby="form-title">{% block auth_content %}{% endblock %}</section>
+</div>
+{% endblock %}

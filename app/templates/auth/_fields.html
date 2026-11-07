@@ -1,0 +1,8 @@
+{% macro field_row(field, autocomplete='', hint='', autofocus=false) %}
+<div class="auth-field">
+  {{ field.label }}
+  {{ field(class='auth-input' + (' is-invalid' if field.errors else ''), autocomplete=autocomplete,
+           autofocus=autofocus, **{'aria-invalid': 'true' if field.errors else 'false', 'aria-describedby': field.id ~ '-help'}) }}
+  <div id="{{ field.id }}-help">{% if field.errors %}{% for message in field.errors %}<p class="field-error" role="alert">{{ message }}</p>{% endfor %}{% elif hint %}<p class="field-hint">{{ hint }}</p>{% endif %}</div>
+</div>
+{% endmacro %}

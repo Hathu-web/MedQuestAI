@@ -1,0 +1,1121 @@
+{
+  "schema_version": 1,
+  "case_code": "MQ_COM_02",
+  "version_no": 1,
+  "title": "Mệt mỏi khi thay đổi lịch làm việc",
+  "demo_only": true,
+  "content": {
+    "patient": {
+      "name": "Trần Ngọc Linh",
+      "age": 28,
+      "gender": "Nữ",
+      "self_pronoun": "tôi",
+      "portrait_key": "female_adult"
+    },
+    "public": {
+      "reason": "Cảm thấy mệt và muốn trao đổi",
+      "context": "Buổi trao đổi giả lập, tập trung lắng nghe và khai thác thông tin.",
+      "opening": "Dạo này tôi thấy mệt và khó tập trung, tôi muốn được trao đổi thêm.",
+      "objectives": [
+        "Hỏi mở và làm rõ thông tin",
+        "Xin phép, lắng nghe và đồng cảm",
+        "Tóm tắt dữ kiện; nhận biết điều chưa biết"
+      ],
+      "difficulty": "BASIC",
+      "intro_order": 2,
+      "duration_minutes": 10
+    },
+    "initial_state": {
+      "state_id": "S0",
+      "cooperation": 0,
+      "revealed_fact_ids": [
+        "F01"
+      ],
+      "event_codes": []
+    },
+    "facts": [
+      {
+        "fact_id": "F01",
+        "topic": "IDENTITY",
+        "value": "Trần Ngọc Linh, 28 tuổi",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "INITIAL",
+          "intent_ids": [],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      },
+      {
+        "fact_id": "F02",
+        "topic": "ONSET",
+        "value": "Thấy mệt từ đầu tuần này",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "ASK_ONSET"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      },
+      {
+        "fact_id": "F03",
+        "topic": "IMPACT",
+        "value": "Khó tập trung khi sắp xếp công việc",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "ASK_IMPACT"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      },
+      {
+        "fact_id": "F04",
+        "topic": "SLEEP",
+        "value": "Ngủ khoảng 6 giờ mỗi đêm trong 4 đêm gần đây",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "ASK_SLEEP"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      },
+      {
+        "fact_id": "F05",
+        "topic": "CONTEXT",
+        "value": "Vừa thay đổi lịch làm việc trong tuần này",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "ASK_CONTEXT"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      },
+      {
+        "fact_id": "F06",
+        "topic": "CONCERN",
+        "value": "Lo không hoàn thành phần việc đã nhận",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "GATED",
+          "intent_ids": [
+            "ASK_CONCERN"
+          ],
+          "state_ids": [
+            "S3"
+          ],
+          "min_cooperation": 2
+        }
+      },
+      {
+        "fact_id": "F07",
+        "topic": "MEDICATION",
+        "value": "Không nhớ tên loại viên uống từng dùng",
+        "knowledge": "UNKNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "ASK_MEDICATION"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      },
+      {
+        "fact_id": "F08",
+        "topic": "EXPECTATION",
+        "value": "Muốn được lắng nghe và hiểu cần bổ sung thông tin gì",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "ASK_EXPECTATION"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        }
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "ASK_ONSET",
+        "examples": [
+          "Bắt đầu thấy mệt từ khi nào?"
+        ],
+        "fact_ids": [
+          "F02"
+        ]
+      },
+      {
+        "intent_id": "ASK_IMPACT",
+        "examples": [
+          "Việc này ảnh hưởng sinh hoạt thế nào?"
+        ],
+        "fact_ids": [
+          "F03"
+        ]
+      },
+      {
+        "intent_id": "ASK_SLEEP",
+        "examples": [
+          "Gần đây ngủ được bao nhiêu giờ?"
+        ],
+        "fact_ids": [
+          "F04"
+        ]
+      },
+      {
+        "intent_id": "ASK_CONTEXT",
+        "examples": [
+          "Gần đây công việc có gì thay đổi?"
+        ],
+        "fact_ids": [
+          "F05"
+        ]
+      },
+      {
+        "intent_id": "ASK_CONCERN",
+        "examples": [
+          "Điều gì làm bạn lo lắng nhất?"
+        ],
+        "fact_ids": [
+          "F06"
+        ]
+      },
+      {
+        "intent_id": "ASK_MEDICATION",
+        "examples": [
+          "Bạn đã dùng loại thuốc nào chưa?"
+        ],
+        "fact_ids": [
+          "F07"
+        ]
+      },
+      {
+        "intent_id": "ASK_EXPECTATION",
+        "examples": [
+          "Bạn mong muốn điều gì ở buổi trao đổi?"
+        ],
+        "fact_ids": [
+          "F08"
+        ]
+      },
+      {
+        "intent_id": "INTRO_PERMISSION",
+        "examples": [
+          "Tôi là sinh viên đang thực hành; bạn có đồng ý trao đổi không?"
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "EMPATHY",
+        "examples": [
+          "Tôi hiểu việc này đang khiến bạn lo lắng."
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "PRIVACY_PERMISSION",
+        "examples": [
+          "Bạn có thể chọn điều mình muốn chia sẻ trong buổi mô phỏng; tôi hỏi thêm được không?"
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "PRESSURE",
+        "examples": [
+          "Bạn phải nói ngay, đừng vòng vo."
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "SUMMARY_CONFIRM",
+        "examples": [
+          "Tôi xin tóm tắt những điều bạn chia sẻ; tôi hiểu đúng chưa?"
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "OPEN_QUESTION",
+        "examples": [
+          "Bạn có thể kể điều khiến mình đến đây không?"
+        ],
+        "fact_ids": []
+      }
+    ],
+    "states": [
+      {
+        "state_id": "S0",
+        "emotion": "Lo lắng",
+        "cooperation": 0,
+        "terminal": false
+      },
+      {
+        "state_id": "S1",
+        "emotion": "Trung tính",
+        "cooperation": 1,
+        "terminal": false
+      },
+      {
+        "state_id": "S2",
+        "emotion": "Dè dặt",
+        "cooperation": 0,
+        "terminal": false
+      },
+      {
+        "state_id": "S3",
+        "emotion": "Hợp tác",
+        "cooperation": 2,
+        "terminal": false
+      },
+      {
+        "state_id": "S4",
+        "emotion": "Đã kết thúc",
+        "cooperation": 2,
+        "terminal": true
+      }
+    ],
+    "rules": [
+      {
+        "rule_id": "R01",
+        "from_states": [
+          "S0"
+        ],
+        "event": "INTRO_PERMISSION",
+        "priority": 70,
+        "to_state": "S1",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": 1,
+        "once_event": "E_INTRO",
+        "emit_event": "E_INTRO",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R02",
+        "from_states": [
+          "S0",
+          "S1"
+        ],
+        "event": "ASK_CONCERN",
+        "priority": 60,
+        "to_state": "S2",
+        "min_cooperation": 0,
+        "max_cooperation": 1,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_HESITATE",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R03",
+        "from_states": [
+          "S1"
+        ],
+        "event": "EMPATHY",
+        "priority": 70,
+        "to_state": "S3",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": 2,
+        "once_event": "E_EMPATHY",
+        "emit_event": "E_EMPATHY",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R04",
+        "from_states": [
+          "S2"
+        ],
+        "event": "PRIVACY_PERMISSION",
+        "priority": 70,
+        "to_state": "S3",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": 2,
+        "once_event": "E_REPAIR",
+        "emit_event": "E_REPAIR",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R05",
+        "from_states": [
+          "S3"
+        ],
+        "event": "ASK_CONCERN",
+        "priority": 60,
+        "to_state": "S3",
+        "min_cooperation": 2,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_CONCERN",
+        "reveal_fact_ids": [
+          "F06"
+        ]
+      },
+      {
+        "rule_id": "R06",
+        "from_states": [
+          "S1",
+          "S3"
+        ],
+        "event": "PRESSURE",
+        "priority": 80,
+        "to_state": "S2",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": -1,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_PRESSURE",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R07_1",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ASK_ONSET",
+        "priority": 10,
+        "to_state": "$same",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_FACT_REQUEST",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R07_2",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ASK_IMPACT",
+        "priority": 10,
+        "to_state": "$same",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_FACT_REQUEST",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R07_3",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ASK_SLEEP",
+        "priority": 10,
+        "to_state": "$same",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_FACT_REQUEST",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R07_4",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ASK_CONTEXT",
+        "priority": 10,
+        "to_state": "$same",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_FACT_REQUEST",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R07_5",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ASK_MEDICATION",
+        "priority": 10,
+        "to_state": "$same",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_FACT_REQUEST",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R07_6",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ASK_EXPECTATION",
+        "priority": 10,
+        "to_state": "$same",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_FACT_REQUEST",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R08_SUBMIT",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "SUBMIT",
+        "priority": 100,
+        "to_state": "S4",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_SUBMITTED",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R08_ABANDON",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ABANDON",
+        "priority": 100,
+        "to_state": "S4",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_ABANDONED",
+        "reveal_fact_ids": []
+      }
+    ],
+    "actions": [
+      {
+        "action_code": "EXPLAIN_PRIVACY",
+        "label": "Giải thích quyền riêng tư và xin phép",
+        "event": "PRIVACY_PERMISSION",
+        "allowed_states": [
+          "S2"
+        ],
+        "max_uses": 1,
+        "reply": "Cảm ơn bạn đã giải thích. Tôi đồng ý trao đổi thêm."
+      },
+      {
+        "action_code": "CONFIRM_SUMMARY",
+        "label": "Xin xác nhận bản tóm tắt",
+        "event": "SUMMARY_CONFIRM",
+        "allowed_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "max_uses": 1,
+        "reply": "Bạn có thể nhắc lại để tôi xác nhận từng ý."
+      }
+    ],
+    "fallbacks": {
+      "unknown": "Hồ sơ mô phỏng chưa có thông tin này; không suy ra là không có.",
+      "unclear": "Bạn có thể làm rõ điều muốn hỏi không?",
+      "guarded": "Tôi chưa thoải mái để nói chuyện đó.",
+      "off_topic": "Mình có thể quay lại buổi trao đổi hiện tại không?"
+    },
+    "development_tests": [
+      {
+        "test_id": "D01",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Bắt đầu thấy mệt từ khi nào?",
+        "intent_ids": [
+          "ASK_ONSET"
+        ],
+        "expected_fact_ids": [
+          "F02"
+        ],
+        "expected_state": "S1"
+      },
+      {
+        "test_id": "D02",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Việc này ảnh hưởng sinh hoạt thế nào?",
+        "intent_ids": [
+          "ASK_IMPACT"
+        ],
+        "expected_fact_ids": [
+          "F03"
+        ],
+        "expected_state": "S1"
+      },
+      {
+        "test_id": "D03",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Gần đây ngủ được bao nhiêu giờ?",
+        "intent_ids": [
+          "ASK_SLEEP"
+        ],
+        "expected_fact_ids": [
+          "F04"
+        ],
+        "expected_state": "S1"
+      },
+      {
+        "test_id": "D04",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Gần đây công việc có gì thay đổi?",
+        "intent_ids": [
+          "ASK_CONTEXT"
+        ],
+        "expected_fact_ids": [
+          "F05"
+        ],
+        "expected_state": "S1"
+      },
+      {
+        "test_id": "D05",
+        "initial": {
+          "state_id": "S3",
+          "cooperation": 2,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Điều gì làm bạn lo lắng nhất?",
+        "intent_ids": [
+          "ASK_CONCERN"
+        ],
+        "expected_fact_ids": [
+          "F06"
+        ],
+        "expected_state": "S3"
+      },
+      {
+        "test_id": "D06",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Bạn đã dùng loại thuốc nào chưa?",
+        "intent_ids": [
+          "ASK_MEDICATION"
+        ],
+        "expected_fact_ids": [
+          "F07"
+        ],
+        "expected_state": "S1"
+      },
+      {
+        "test_id": "D07",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Bạn mong muốn điều gì ở buổi trao đổi?",
+        "intent_ids": [
+          "ASK_EXPECTATION"
+        ],
+        "expected_fact_ids": [
+          "F08"
+        ],
+        "expected_state": "S1"
+      },
+      {
+        "test_id": "D08",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Điều gì làm bạn lo lắng nhất?",
+        "intent_ids": [
+          "ASK_CONCERN"
+        ],
+        "expected_fact_ids": [],
+        "expected_state": "S2"
+      },
+      {
+        "test_id": "D09",
+        "initial": {
+          "state_id": "S1",
+          "cooperation": 1,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Tôi hiểu việc này đang khiến bạn lo lắng.",
+        "intent_ids": [
+          "EMPATHY"
+        ],
+        "expected_fact_ids": [],
+        "expected_state": "S3"
+      },
+      {
+        "test_id": "D10",
+        "initial": {
+          "state_id": "S2",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "question": "Bạn có thể chọn điều mình muốn chia sẻ trong buổi mô phỏng; tôi hỏi thêm được không?",
+        "intent_ids": [
+          "PRIVACY_PERMISSION"
+        ],
+        "expected_fact_ids": [],
+        "expected_state": "S3"
+      }
+    ],
+    "branch_paths": [
+      {
+        "path_id": "COOPERATIVE",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "steps": [
+          {
+            "event": "INTRO_PERMISSION",
+            "expected_state": "S1"
+          },
+          {
+            "event": "ASK_ONSET",
+            "expected_state": "S1"
+          },
+          {
+            "event": "EMPATHY",
+            "expected_state": "S3"
+          },
+          {
+            "event": "ASK_CONCERN",
+            "expected_state": "S3"
+          },
+          {
+            "event": "SUBMIT",
+            "expected_state": "S4"
+          }
+        ]
+      },
+      {
+        "path_id": "GUARDED_REPAIR",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "steps": [
+          {
+            "event": "ASK_CONCERN",
+            "expected_state": "S2"
+          },
+          {
+            "event": "PRIVACY_PERMISSION",
+            "expected_state": "S3"
+          },
+          {
+            "event": "ASK_CONCERN",
+            "expected_state": "S3"
+          },
+          {
+            "event": "ABANDON",
+            "expected_state": "S4"
+          }
+        ]
+      },
+      {
+        "path_id": "GUARDED",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F01"
+          ],
+          "event_codes": []
+        },
+        "steps": [
+          {
+            "event": "INTRO_PERMISSION",
+            "expected_state": "S1"
+          },
+          {
+            "event": "PRESSURE",
+            "expected_state": "S2"
+          },
+          {
+            "event": "ASK_ONSET",
+            "expected_state": "S2"
+          },
+          {
+            "event": "ABANDON",
+            "expected_state": "S4"
+          }
+        ]
+      }
+    ]
+  },
+  "review": {
+    "technical": {
+      "status": "NOT_REVIEWED",
+      "reviewer": null,
+      "reviewed_at": null,
+      "scope": "Cấu trúc, tham chiếu và chuyển nhánh; kết quả tự động không thay rà soát độc lập.",
+      "evidence": []
+    },
+    "training": {
+      "status": "NOT_REVIEWED",
+      "reviewer": null,
+      "reviewed_at": null,
+      "scope": "Mục tiêu giao tiếp, câu hỏi và rubric.",
+      "evidence": []
+    },
+    "medical": {
+      "status": "NOT_REVIEWED",
+      "reviewer": null,
+      "reviewed_at": null,
+      "scope": "Chưa thẩm định chuyên môn; không sử dụng cho quyết định y khoa.",
+      "evidence": []
+    },
+    "source": "Ca giả lập mới soạn cho bước 2 theo khung đặc tả v2; chưa được người hướng dẫn rà soát.",
+    "author": "Bản nháp hỗ trợ bởi AI; người học cần rà soát.",
+    "notice": "Demo kỹ thuật chưa thẩm định chuyên môn"
+  },
+  "rubric": [
+    {
+      "criterion_code": "C01",
+      "group_code": "CURRENT",
+      "weight": 15,
+      "description": "Hỏi thời điểm xuất hiện vấn đề",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi thời điểm xuất hiện vấn đề.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "PARTIAL": {
+          "description": "Có hỏi diễn biến nhưng chưa làm rõ thời điểm bắt đầu.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        }
+      },
+      "fact_ids": [
+        "F02"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C02",
+      "group_code": "CURRENT",
+      "weight": 15,
+      "description": "Hỏi ảnh hưởng tới sinh hoạt",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi ảnh hưởng tới sinh hoạt.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "PARTIAL": {
+          "description": "Có hỏi ảnh hưởng nhưng chưa làm rõ hoạt động bị tác động.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        }
+      },
+      "fact_ids": [
+        "F03"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C03",
+      "group_code": "RELATED",
+      "weight": 10,
+      "description": "Hỏi giấc ngủ gần đây",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi giấc ngủ gần đây.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "PARTIAL": {
+          "description": "Có hỏi về ngủ nhưng chưa làm rõ số giờ hoặc khoảng thời gian.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        }
+      },
+      "fact_ids": [
+        "F04"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C04",
+      "group_code": "RELATED",
+      "weight": 10,
+      "description": "Hỏi bối cảnh liên quan",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi bối cảnh liên quan.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "PARTIAL": {
+          "description": "Có hỏi bối cảnh chung nhưng chưa làm rõ kỳ thi hoặc lịch làm việc theo ca.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        }
+      },
+      "fact_ids": [
+        "F05"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C05",
+      "group_code": "COMMUNICATION",
+      "weight": 10,
+      "description": "Giới thiệu vai trò và xin phép",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Giới thiệu vai trò và xin phép.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "PARTIAL": {
+          "description": "Chỉ giới thiệu vai trò hoặc chỉ xin phép, chưa đủ cả hai.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        }
+      },
+      "fact_ids": [],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C06",
+      "group_code": "COMMUNICATION",
+      "weight": 10,
+      "description": "Thể hiện đồng cảm phù hợp",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Thể hiện đồng cảm phù hợp.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "PARTIAL": {
+          "description": "Có thừa nhận mối lo nhưng diễn đạt còn chung chung, chưa bám điều đã chia sẻ.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Trích nguyên văn câu của học viên đã lưu; bệnh nhân tự kể không chứng minh học viên đã hỏi."
+        }
+      },
+      "fact_ids": [],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C07",
+      "group_code": "REASONING",
+      "weight": 20,
+      "description": "Nhận diện chưa đủ dữ kiện và chọn kết thúc phù hợp, không gán chẩn đoán",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Nhận diện chưa đủ dữ kiện và chọn kết thúc phù hợp, không gán chẩn đoán.",
+          "evidence": "Dẫn chứng từ bản tổng kết, tin nhắn học viên hoặc hành động đã được chấp nhận; không suy ra từ điểm hợp tác."
+        },
+        "PARTIAL": {
+          "description": "Biết còn thiếu dữ kiện nhưng chưa nêu cách bổ sung hoặc lựa chọn kết thúc phù hợp.",
+          "evidence": "Dẫn chứng từ bản tổng kết, tin nhắn học viên hoặc hành động đã được chấp nhận; không suy ra từ điểm hợp tác."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Dẫn chứng từ bản tổng kết, tin nhắn học viên hoặc hành động đã được chấp nhận; không suy ra từ điểm hợp tác."
+        }
+      },
+      "fact_ids": [],
+      "evidence_sources": [
+        "LEARNER_MESSAGE",
+        "ACTION",
+        "SUBMISSION"
+      ]
+    },
+    {
+      "criterion_code": "C08",
+      "group_code": "SUMMARY",
+      "weight": 10,
+      "description": "Tóm tắt chính xác và xin xác nhận",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Tóm tắt chính xác và xin xác nhận.",
+          "evidence": "Dẫn chứng từ bản tổng kết, tin nhắn học viên hoặc hành động đã được chấp nhận; không suy ra từ điểm hợp tác."
+        },
+        "PARTIAL": {
+          "description": "Tóm tắt đúng nhưng bỏ sót điểm chính đã hỏi, hoặc chưa xin xác nhận.",
+          "evidence": "Dẫn chứng từ bản tổng kết, tin nhắn học viên hoặc hành động đã được chấp nhận; không suy ra từ điểm hợp tác."
+        },
+        "MISSED": {
+          "description": "Không có bằng chứng thực hiện, hoặc nội dung trái tiêu chí.",
+          "evidence": "Dẫn chứng từ bản tổng kết, tin nhắn học viên hoặc hành động đã được chấp nhận; không suy ra từ điểm hợp tác."
+        }
+      },
+      "fact_ids": [],
+      "evidence_sources": [
+        "LEARNER_MESSAGE",
+        "ACTION",
+        "SUBMISSION"
+      ]
+    }
+  ]
+}

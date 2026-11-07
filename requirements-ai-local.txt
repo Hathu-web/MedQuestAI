@@ -1,0 +1,2 @@
+# Chỉ cần nếu dùng EMBED_PROVIDER=local (demo offline theo tài liệu cô).
+wordllama==0.4.0.post1

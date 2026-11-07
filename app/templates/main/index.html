@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="home-hero">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> INTELLIGENT VIRTUAL PATIENT SIMULATION</p>
+    <h1>Mỗi câu hỏi.<br>Một bước <span>thấu hiểu.</span></h1>
+    <p class="hero-description">Bắt đầu một cuộc trò chuyện, lắng nghe bệnh nhân và rèn luyện cách khai thác bệnh sử. Xem lại hội thoại và nhận góp ý sau khi nộp tổng kết.</p>
+    <a class="mq-button mq-primary hero-cta" href="{{ url_for('cases.index') if current_user.is_authenticated else url_for('auth.login') }}">{{ 'Chọn ca thực hành' if current_user.is_authenticated else 'Đăng nhập để thực hành' }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+    {% if config.PREVIEW_ENABLED %}<a class="text-link female-preview-link" href="{{ url_for('simulation.room', patient='female') }}">Xem thử giao diện với bệnh nhân nữ <i class="bi bi-arrow-right" aria-hidden="true"></i></a>{% endif %}
+    <p class="hero-note"><i class="bi bi-info-circle" aria-hidden="true"></i> Hội thoại với AI · Lưu tiến trình · Chấm theo tiêu chí</p>
+  </div>
+  <div class="hero-scene">
+    <img src="{{ url_for('static', filename='images/patient-an.png') }}" alt="Nhân vật An trong phòng khám ngoại trú" width="1672" height="941">
+    <div class="scene-label"><span class="status-dot" aria-hidden="true"></span> AI Patient <span>Không gian thực hành của bạn</span></div>
+    <div class="hero-scene-caption"><i class="bi bi-chat-square-heart" aria-hidden="true"></i><div><strong>Bắt đầu bằng việc lắng nghe</strong><span>“Anh có thể kể rõ hơn được không?”</span></div></div>
+  </div>
+</section>
+<div class="section-heading"><div><p class="eyebrow">MỘT BUỔI THỰC HÀNH, HAI VAI TRÒ</p><h2>Học từ cuộc hội thoại của chính bạn</h2></div><a class="text-link" href="{{ url_for('main.guide') }}">Xem cách sử dụng <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>
+<div class="role-grid">
+  <article class="role-card"><span class="role-icon"><i class="bi bi-person-heart" aria-hidden="true"></i></span><div><p class="eyebrow">TRONG BUỔI THỰC HÀNH</p><h3>AI Patient</h3><p>Hỏi chuyện bệnh nhân, hỏi tiếp theo câu trả lời và tìm hiểu câu chuyện của từng người.</p></div><span class="role-number" aria-hidden="true">01</span></article>
+  <article class="role-card"><span class="role-icon tutor-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></span><div><p class="eyebrow">SAU KHI NỘP TỔNG KẾT</p><h3>AI Tutor</h3><p>Xem lại kỹ năng, dẫn chứng từ hội thoại và những điểm cần cải thiện ở lần luyện tiếp theo.</p></div><span class="role-number" aria-hidden="true">02</span></article>
+</div>
+{% endblock %}

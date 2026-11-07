@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="account-heading"><div><p class="eyebrow">KHÔNG GIAN HỌC TẬP</p><h1>Chào {{ current_user.display_name }}</h1><p class="subtle">Chọn một ca mới hoặc tiếp tục lượt đang dở.</p></div><a class="mq-button mq-primary" href="{{ url_for('cases.index') }}">Mở thư viện ca <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div>
+<div class="row g-3 mb-4">
+  {% for label, count in [('Lượt học đang dở', data.active_count), ('Lượt học đã kết thúc', data.closed_count), ('Lượt có đánh giá hợp lệ', data.valid_count)] %}
+  <div class="col-md-4"><section class="mq-panel stat-card"><p>{{ label }}</p><strong>{{ count }}</strong></section></div>
+  {% endfor %}
+</div>
+<p class="subtle">Đã tạo {{ data.quota.used }}/{{ data.quota.limit }} lượt hôm nay, theo giờ Việt Nam. Các chỉ số học tập chỉ tính PRACTICE; lượt kết thúc gồm hoàn tất và bỏ dở.</p>
+{% if data.test_count %}<p class="preview-notice">Bạn có {{ data.test_count }} lượt TEST. Những lượt này xuất hiện bên dưới để tiếp tục/xem lại, không tính vào các chỉ số học tập phía trên.</p>{% endif %}
+<section class="mq-panel account-card mb-4">
+  <p class="eyebrow">TIẾP TỤC TỪ LẦN TRƯỚC</p><h2>Lượt đang dở</h2>
+  <ul class="session-list">
+  {% for item, title in data.active %}<li><div><strong>{{ title }}</strong><p>#{{ item.id }} · {{ item.started_at|vietnam_time }} · {{ item.mode }}</p></div><a class="mq-button mq-primary" href="{{ url_for('simulation.session_detail', session_id=item.id) }}">Tiếp tục</a></li>
+  {% else %}<li><p class="subtle">Chưa có lượt đang dở. Mở thư viện để chọn một ca phù hợp.</p></li>{% endfor %}
+  </ul>
+</section>
+<section class="mq-panel account-card">
+  <p class="eyebrow">10 LƯỢT GẦN NHẤT</p><h2>Hoạt động gần đây</h2>
+  <ul class="session-list">
+  {% for item, title in data.recent %}<li>
+    <div><strong>{{ title }}</strong><p>{{ {'ACTIVE':'Đang thực hành','COMPLETED':'Đã hoàn tất','ABANDONED':'Đã bỏ lượt'}[item.status] }} · {{ item.mode }} · {{ 'Có hỗ trợ' if item.assisted else 'Tự làm' }}</p>
+      <p>{% if item.mode == 'TEST' %}Lượt kiểm thử{% elif item.id in data.scores %}Điểm hợp lệ mới nhất: {{ data.scores[item.id] }}/100{% else %}Chưa có đánh giá hợp lệ{% endif %}</p>
+    </div><a class="text-link" href="{{ url_for('simulation.session_detail', session_id=item.id) }}">{{ 'Tiếp tục' if item.status == 'ACTIVE' else 'Xem lại' }}</a>
+  </li>{% else %}<li><p class="subtle">Chưa có lượt nào được lưu.</p></li>{% endfor %}
+  </ul>
+</section>
+{% endblock %}

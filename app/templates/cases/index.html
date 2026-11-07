@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="account-heading">
+  <div><p class="eyebrow">LUYỆN KỸ NĂNG HỎI BỆNH</p><h1>Gặp bệnh nhân của bạn</h1><p class="subtle">Mỗi người một câu chuyện. Hãy hỏi, lắng nghe và tìm hiểu theo cách của bạn.</p></div>
+  <a class="text-link" href="{{ url_for('main.dashboard') }}">Về tổng quan học tập</a>
+</div>
+{% if current_user.role == 'ADMIN' %}<p class="preview-notice">Bạn đang quản trị: các lượt kiểm tra ca dùng cùng AI nhưng không tính điểm học tập. Đăng nhập tài khoản học viên để bắt đầu lượt Thực hành.</p>{% endif %}
+<div class="row g-4">
+{% for item in items %}{% set case = item.case %}
+  <div class="col-md-6"><article class="mq-panel case-card h-100">
+    <img class="case-cover" src="{{ case.patient.image_url }}" alt="Nhân vật {{ case.patient.name }}" width="1672" height="941" loading="lazy">
+    <div class="p-4">
+      <p class="eyebrow">TÌNH HUỐNG {{ loop.index }} · {{ case.code }}</p>
+      <span class="status-pill">{{ 'Thực hành với AI' if case.status == 'PUBLISHED' else 'Bản nháp' }}</span>
+      <h2 class="case-title">{{ case.title }}</h2>
+      <p class="subtle">{{ case.patient.name }} · {{ case.patient.age }} tuổi · {{ case.patient.gender }}</p>
+      <p class="subtle">{{ {'BASIC':'Cơ bản','INTERMEDIATE':'Trung bình','ADVANCED':'Nâng cao'}.get(case.difficulty, case.difficulty) }} · Khoảng {{ case.duration_minutes }} phút</p>
+      <ul class="case-objectives">{% for goal in case.objectives %}<li>{{ goal }}</li>{% endfor %}</ul>
+      <a class="mq-button mq-primary" href="{{ url_for('cases.detail', version_id=case.version_id) }}">Xem nhiệm vụ <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </article></div>
+{% else %}
+  <div class="col-12"><section class="mq-panel account-empty p-5"><h2>Chưa có ca dành cho tài khoản này</h2><p>Học viên sẽ thấy các ca sau khi được phát hành. Liên hệ người hướng dẫn để được cấp ca thực hành.</p>{% if config.PREVIEW_ENABLED %}<a class="text-link" href="{{ url_for('simulation.room') }}">Mở phòng xem trước</a>{% endif %}</section></div>
+{% endfor %}
+</div>
+<p class="subtle mt-4">Nhân vật và bệnh sử được xây dựng cho học tập. AI phản hồi theo hồ sơ của từng ca; kết quả đánh giá giúp bạn luyện tập và cần người hướng dẫn xem lại khi dùng làm điểm chính thức.</p>
+{% endblock %}

@@ -1,0 +1,50 @@
+name: Check MedQuest Docker manually
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Run isolated tests inside the build
+        run: docker build --target test --tag medquest-ai:tests .
+
+      - name: Create disposable configuration with AI disabled
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import secrets
+          Path(".env.docker").write_text(
+              "SECRET_KEY=" + secrets.token_urlsafe(48) +
+              "\nSESSION_COOKIE_SECURE=false\nTRUSTED_HOSTS=localhost,127.0.0.1" +
+              "\nAI_CHAT_ENABLED=false\nAI_TUTOR_ENABLED=false\n",
+              encoding="utf-8")
+          PY
+
+      - name: Build runtime and initialize disposable database
+        run: |
+          docker compose build
+          docker compose run --rm web python -m flask --app medquest db upgrade
+
+      - name: Start and check HTTP
+        run: |
+          docker compose up -d --wait --wait-timeout 90
+          curl --fail --silent --show-error http://127.0.0.1:8000/api/v1/health
+          docker compose exec -T web python -m flask --app medquest check --db
+
+      - name: Logs
+        if: always()
+        run: docker compose logs --no-color
+
+      - name: Remove only the disposable CI volume
+        if: always()
+        run: docker compose down --volumes

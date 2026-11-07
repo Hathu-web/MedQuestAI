@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="account-heading"><div><p class="eyebrow">{{ case.code }} · PHIÊN BẢN {{ case.version_no }}</p><h1>{{ case.title }}</h1></div><a class="text-link" href="{{ url_for('cases.index') }}">Về thư viện ca</a></div>
+<div class="row g-4">
+  <div class="col-lg-5"><section class="mq-panel case-card">
+    <img class="case-cover" src="{{ case.patient.image_url }}" alt="Nhân vật {{ case.patient.name }}" width="1672" height="941">
+    <div class="p-4"><h2 class="case-title">{{ case.patient.name }}</h2><p class="subtle">{{ case.patient.age }} tuổi · {{ case.patient.gender }}</p><p>{{ case.reason }}</p><blockquote class="opening-quote">“{{ case.opening }}”</blockquote></div>
+  </section></div>
+  <div class="col-lg-7"><section class="mq-panel account-card">
+    <p class="eyebrow">TRƯỚC KHI BẮT ĐẦU</p><h2>Bối cảnh và nhiệm vụ</h2><p class="subtle">{{ case.context }}</p>
+    <ul class="case-objectives">{% for goal in case.objectives %}<li>{{ goal }}</li>{% endfor %}</ul>
+    {% if form.mode.data == 'TEST' %}<p class="preview-notice">Bạn đang kiểm tra ca. Hội thoại và kết quả được lưu riêng, không tính vào thống kê học tập.</p>{% endif %}
+    {% if case.coursework %}<p class="subtle">Hỏi bằng lời của bạn, mỗi lần một ý. Trước khi nộp, hãy tự tóm tắt và hỏi người bệnh xem bạn hiểu đúng chưa.</p>{% endif %}
+    <p class="subtle">Hôm nay đã tạo {{ quota.used }}/{{ quota.limit }} lượt, tính cả TEST. Hạn mức đặt lại lúc 00:00 giờ Việt Nam.</p>
+    <form method="post" action="{{ url_for('cases.detail', version_id=case.version_id) }}">
+      {{ form.hidden_tag() }}
+      {% if quota.used < quota.limit %}{{ form.submit(class='mq-button mq-primary', value='Bắt đầu lượt kiểm thử' if form.mode.data == 'TEST' else 'Bắt đầu thực hành') }}
+      {% else %}<p class="field-error">Bạn đã dùng hết lượt mới hôm nay. Các lượt đang dở vẫn có thể tiếp tục.</p>{% endif %}
+    </form>
+    <a class="text-link d-inline-block mt-3" href="{{ url_for('main.dashboard') }}">Xem các lượt đang dở</a>
+  </section></div>
+</div>
+{% endblock %}

@@ -1,0 +1,1733 @@
+{
+  "schema_version": 1,
+  "case_code": "MQ_COM_04",
+  "version_no": 1,
+  "title": "Hương · Nóng rát vùng thượng vị sau ăn",
+  "demo_only": false,
+  "content": {
+    "patient": {
+      "name": "Phạm Thu Hương",
+      "age": 40,
+      "gender": "Nữ",
+      "self_pronoun": "tôi",
+      "portrait_key": "female_teacher"
+    },
+    "public": {
+      "reason": "Nóng rát vùng bụng trên tái diễn",
+      "context": "Phòng khám ngoại trú. Hương là giáo viên có lịch làm việc bận. Bạn cần mô tả rõ vùng khó chịu, mối liên hệ với bữa ăn và triệu chứng cần chú ý; chưa có chẩn đoán cho lần khám này.",
+      "opening": "Gần đây ăn xong tôi hay nóng rát ở bụng trên, có hôm còn thấy chua lên miệng.",
+      "objectives": [
+        "Mô tả nóng rát, thời điểm và liên quan với bữa ăn hoặc tư thế",
+        "Hỏi nuốt nghẹn, chảy máu, sụt cân và khó chịu ngực liên quan gắng sức",
+        "Khai thác thuốc, sinh hoạt; tổng kết bằng dữ kiện thay vì gán chẩn đoán"
+      ],
+      "difficulty": "INTERMEDIATE",
+      "intro_order": 4,
+      "duration_minutes": 15
+    },
+    "initial_state": {
+      "state_id": "S0",
+      "cooperation": 0,
+      "revealed_fact_ids": [
+        "F_IDENTITY"
+      ],
+      "event_codes": []
+    },
+    "facts": [
+      {
+        "fact_id": "F_IDENTITY",
+        "topic": "IDENTITY",
+        "value": "Phạm Thu Hương, nữ, 40 tuổi, giáo viên trung học.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "INITIAL",
+          "intent_ids": [],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "tên tuổi nghề nghiệp"
+        ]
+      },
+      {
+        "fact_id": "F_ONSET",
+        "topic": "ONSET",
+        "value": "Bắt đầu có những lần nóng rát khoảng hai tuần nay.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "khởi phát bắt đầu bao lâu"
+        ]
+      },
+      {
+        "fact_id": "F_CHARACTER",
+        "topic": "CHARACTER",
+        "value": "Nóng rát ở vùng bụng trên, ngay dưới xương ức, đôi lúc lan lên giữa ngực.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "vị trí đau nóng rát thượng vị ở đâu tính chất"
+        ]
+      },
+      {
+        "fact_id": "F_DURATION",
+        "topic": "DURATION",
+        "value": "Mỗi lần khó chịu khoảng hai mươi đến ba mươi phút.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "mỗi lần kéo dài bao lâu thời gian"
+        ]
+      },
+      {
+        "fact_id": "F_FREQUENCY",
+        "topic": "FREQUENCY",
+        "value": "Một tuần có khoảng ba hoặc bốn ngày gặp triệu chứng.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "bao nhiêu lần thường xuyên tần suất"
+        ]
+      },
+      {
+        "fact_id": "F_SEVERITY",
+        "topic": "SEVERITY",
+        "value": "Mức khó chịu khoảng 4 trên 10, chưa có lần đau dữ dội đột ngột.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "mức độ thang điểm đau dữ dội"
+        ]
+      },
+      {
+        "fact_id": "F_MEALS",
+        "topic": "MEALS",
+        "value": "Thường khó chịu sau bữa tối ăn muộn, nhất là khi ăn nhiều.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "liên quan bữa ăn ăn xong ăn muộn thức ăn"
+        ]
+      },
+      {
+        "fact_id": "F_POSITION",
+        "topic": "POSITION",
+        "value": "Nằm ngay sau ăn hoặc cúi người thấy nóng rát rõ hơn.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "nằm cúi tư thế tăng đau"
+        ]
+      },
+      {
+        "fact_id": "F_RELIEF",
+        "topic": "RELIEF",
+        "value": "Ngồi thẳng và chờ một lúc thấy dịu dần.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "giảm đau làm gì đỡ ngồi nghỉ"
+        ]
+      },
+      {
+        "fact_id": "F_SOUR",
+        "topic": "SOUR",
+        "value": "Đôi lúc có vị chua trong miệng khi khó chịu.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "ợ chua vị chua trào lên miệng"
+        ]
+      },
+      {
+        "fact_id": "F_BLOAT",
+        "topic": "BLOAT",
+        "value": "Có cảm giác đầy bụng sau bữa ăn lớn.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "đầy bụng chướng hơi"
+        ]
+      },
+      {
+        "fact_id": "F_SWALLOW",
+        "topic": "SWALLOW",
+        "value": "Không thấy nuốt nghẹn, thức ăn mắc lại hoặc đau khi nuốt.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "nuốt nghẹn khó nuốt đau khi nuốt"
+        ]
+      },
+      {
+        "fact_id": "F_VOMIT",
+        "topic": "VOMIT",
+        "value": "Không nôn hoặc nôn ra máu.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "nôn ói nôn máu"
+        ]
+      },
+      {
+        "fact_id": "F_STOOL",
+        "topic": "STOOL",
+        "value": "Không thấy phân đen như hắc ín hoặc máu trong phân.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "đi ngoài phân đen chảy máu tiêu hóa"
+        ]
+      },
+      {
+        "fact_id": "F_WEIGHT",
+        "topic": "WEIGHT",
+        "value": "Không nhận thấy sụt cân không chủ ý; quần áo vẫn vừa như trước.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "sụt cân giảm cân không chủ ý"
+        ]
+      },
+      {
+        "fact_id": "F_EXERTION",
+        "topic": "EXERTION",
+        "value": "Đi bộ hoặc leo cầu thang không làm xuất hiện cơn khó chịu này.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "gắng sức leo cầu thang đi bộ đau ngực"
+        ]
+      },
+      {
+        "fact_id": "F_PRESSURE",
+        "topic": "PRESSURE",
+        "value": "Không có cảm giác đè nặng hoặc bóp nghẹt ngực trong các đợt vừa kể.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "đau thắt ngực bóp nghẹt đè nặng"
+        ]
+      },
+      {
+        "fact_id": "F_BREATH",
+        "topic": "BREATH",
+        "value": "Không khó thở hoặc vã mồ hôi lạnh đi kèm các cơn vừa kể.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "khó thở mồ hôi lạnh"
+        ]
+      },
+      {
+        "fact_id": "F_RADIATION",
+        "topic": "RADIATION",
+        "value": "Không có cơn đau lan lên hàm hoặc ra cánh tay.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "đau lan tay hàm"
+        ]
+      },
+      {
+        "fact_id": "F_FEVER",
+        "topic": "FEVER",
+        "value": "Không có cảm giác sốt trong hai tuần này.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "sốt rét run"
+        ]
+      },
+      {
+        "fact_id": "F_IMPACT",
+        "topic": "IMPACT",
+        "value": "Một số tối phải ngồi dậy chờ dễ chịu mới ngủ tiếp; vẫn đi dạy được.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "ảnh hưởng sinh hoạt ngủ công việc"
+        ]
+      },
+      {
+        "fact_id": "F_SCHEDULE",
+        "topic": "SCHEDULE",
+        "value": "Gần đây chấm bài buổi tối nên có hôm ăn tối sau chín giờ.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "lịch làm việc ăn muộn chấm bài"
+        ]
+      },
+      {
+        "fact_id": "F_CAFFEINE",
+        "topic": "CAFFEINE",
+        "value": "Uống hai ly cà phê mỗi ngày để làm việc.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "cà phê cafe nước uống"
+        ]
+      },
+      {
+        "fact_id": "F_FOOD",
+        "topic": "FOOD",
+        "value": "Thường ăn cay; chưa ghi chép để biết món nào làm khó chịu hơn.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "đồ ăn cay dầu mỡ thực phẩm"
+        ]
+      },
+      {
+        "fact_id": "F_MEDICATION",
+        "topic": "MEDICATION",
+        "value": "Thỉnh thoảng uống thuốc giảm đau mua ngoài khi đau đầu, không nhớ tên; chưa mang vỏ thuốc.",
+        "knowledge": "UNKNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "thuốc đã dùng giảm đau tên thuốc"
+        ]
+      },
+      {
+        "fact_id": "F_REGULAR_MEDS",
+        "topic": "REGULAR_MEDS",
+        "value": "Không có thuốc uống theo đơn hằng ngày.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "thuốc thường xuyên đơn thuốc"
+        ]
+      },
+      {
+        "fact_id": "F_ALLERGY",
+        "topic": "ALLERGY",
+        "value": "Không biết chắc có dị ứng thuốc nào; chưa có thông tin xác nhận.",
+        "knowledge": "UNKNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "dị ứng thuốc"
+        ]
+      },
+      {
+        "fact_id": "F_HISTORY",
+        "topic": "HISTORY",
+        "value": "Trước đây đôi lần nóng rát sau ăn nhiều, nhưng chưa khám vì triệu chứng này.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "tiền sử từng bị tái phát"
+        ]
+      },
+      {
+        "fact_id": "F_CHRONIC",
+        "topic": "CHRONIC",
+        "value": "Chưa được bác sĩ chẩn đoán bệnh mạn tính.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "bệnh nền bệnh mạn"
+        ]
+      },
+      {
+        "fact_id": "F_PREGNANCY",
+        "topic": "PREGNANCY",
+        "value": "Chưa kiểm tra khả năng mang thai trong lần này; không thể xác nhận chỉ từ triệu chứng.",
+        "knowledge": "UNKNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "mang thai có thai khả năng thai"
+        ]
+      },
+      {
+        "fact_id": "F_PERIOD",
+        "topic": "PERIOD",
+        "value": "Kỳ kinh gần nhất cách đây khoảng ba tuần; thường đều.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "GATED",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 2
+        },
+        "search_hints": [
+          "kinh nguyệt kỳ kinh cuối"
+        ]
+      },
+      {
+        "fact_id": "F_CONCERN",
+        "topic": "CONCERN",
+        "value": "Lo bị bệnh dạ dày nặng vì từng nghe người quen kể chuyện tương tự.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "GATED",
+          "intent_ids": [
+            "ASK_CONCERN"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 2
+        },
+        "search_hints": [
+          "lo lắng sợ điều gì băn khoăn"
+        ]
+      },
+      {
+        "fact_id": "F_EXPECTATION",
+        "topic": "EXPECTATION",
+        "value": "Muốn biết cần khám gì thêm và làm sao sắp xếp sinh hoạt phù hợp.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "mong muốn kỳ vọng cần giúp gì"
+        ]
+      },
+      {
+        "fact_id": "F_SUPPORT",
+        "topic": "SUPPORT",
+        "value": "Sống cùng chồng và con; gia đình có thể hỗ trợ việc nhà.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "gia đình sống với ai hỗ trợ"
+        ]
+      },
+      {
+        "fact_id": "F_SMOKE",
+        "topic": "SMOKE",
+        "value": "Không hút thuốc lá.",
+        "knowledge": "ABSENT",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "thuốc lá hút thuốc"
+        ]
+      },
+      {
+        "fact_id": "F_ALCOHOL",
+        "topic": "ALCOHOL",
+        "value": "Rất hiếm khi uống rượu bia, hai tuần này không uống.",
+        "knowledge": "KNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "rượu bia cồn"
+        ]
+      },
+      {
+        "fact_id": "F_TESTS",
+        "topic": "TESTS",
+        "value": "Chưa có nội soi, xét nghiệm, điện tim hoặc kết quả khám của lần này.",
+        "knowledge": "UNSPECIFIED",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "nội soi xét nghiệm điện tim kết quả"
+        ]
+      },
+      {
+        "fact_id": "F_DIAGNOSIS",
+        "topic": "DIAGNOSIS",
+        "value": "Chưa có chẩn đoán xác định cho triệu chứng này.",
+        "knowledge": "UNKNOWN",
+        "disclosure": {
+          "mode": "ON_REQUEST",
+          "intent_ids": [
+            "PATIENT_QUERY"
+          ],
+          "state_ids": [
+            "S0",
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "min_cooperation": 0
+        },
+        "search_hints": [
+          "chẩn đoán bệnh gì trào ngược viêm loét"
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "intent_id": "PATIENT_QUERY",
+        "examples": [
+          "Bạn có thể kể rõ hơn không?"
+        ],
+        "fact_ids": [
+          "F_ONSET",
+          "F_CHARACTER",
+          "F_DURATION",
+          "F_FREQUENCY",
+          "F_SEVERITY",
+          "F_MEALS",
+          "F_POSITION",
+          "F_RELIEF",
+          "F_SOUR",
+          "F_BLOAT",
+          "F_SWALLOW",
+          "F_VOMIT",
+          "F_STOOL",
+          "F_WEIGHT",
+          "F_EXERTION",
+          "F_PRESSURE",
+          "F_BREATH",
+          "F_RADIATION",
+          "F_FEVER",
+          "F_IMPACT",
+          "F_SCHEDULE",
+          "F_CAFFEINE",
+          "F_FOOD",
+          "F_MEDICATION",
+          "F_REGULAR_MEDS",
+          "F_ALLERGY",
+          "F_HISTORY",
+          "F_CHRONIC",
+          "F_PREGNANCY",
+          "F_PERIOD",
+          "F_EXPECTATION",
+          "F_SUPPORT",
+          "F_SMOKE",
+          "F_ALCOHOL",
+          "F_TESTS",
+          "F_DIAGNOSIS"
+        ]
+      },
+      {
+        "intent_id": "INTRO_PERMISSION",
+        "examples": [
+          "Tôi là sinh viên, xin phép hỏi vài điều nhé."
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "EMPATHY",
+        "examples": [
+          "Tôi hiểu việc này khiến bạn lo."
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "PRIVACY_PERMISSION",
+        "examples": [
+          "Xin phép hỏi riêng, bạn có thể không trả lời nếu chưa thoải mái."
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "PRESSURE",
+        "examples": [
+          "Cứ trả lời đi, sao nhiều chuyện vậy."
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "ASK_CONCERN",
+        "examples": [
+          "Bạn đang lo nhất điều gì?"
+        ],
+        "fact_ids": [
+          "F_CONCERN"
+        ]
+      },
+      {
+        "intent_id": "ASK_ONSET",
+        "examples": [
+          "Bắt đầu khi nào?"
+        ],
+        "fact_ids": []
+      },
+      {
+        "intent_id": "SUMMARY_CONFIRM",
+        "examples": [
+          "Tôi xin nhắc lại, có điều gì cần sửa không?"
+        ],
+        "fact_ids": []
+      }
+    ],
+    "states": [
+      {
+        "state_id": "S0",
+        "emotion": "Lo lắng",
+        "cooperation": 0,
+        "terminal": false
+      },
+      {
+        "state_id": "S1",
+        "emotion": "Trung tính",
+        "cooperation": 1,
+        "terminal": false
+      },
+      {
+        "state_id": "S2",
+        "emotion": "Dè dặt",
+        "cooperation": 0,
+        "terminal": false
+      },
+      {
+        "state_id": "S3",
+        "emotion": "Hợp tác",
+        "cooperation": 2,
+        "terminal": false
+      },
+      {
+        "state_id": "S4",
+        "emotion": "Đã kết thúc",
+        "cooperation": 2,
+        "terminal": true
+      }
+    ],
+    "rules": [
+      {
+        "rule_id": "R01",
+        "from_states": [
+          "S0"
+        ],
+        "event": "INTRO_PERMISSION",
+        "priority": 70,
+        "to_state": "S1",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": 1,
+        "once_event": "E_INTRO",
+        "emit_event": "E_INTRO",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R02",
+        "from_states": [
+          "S0",
+          "S1"
+        ],
+        "event": "ASK_CONCERN",
+        "priority": 60,
+        "to_state": "S2",
+        "min_cooperation": 0,
+        "max_cooperation": 1,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_HESITATE",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R03",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "EMPATHY",
+        "priority": 70,
+        "to_state": "S3",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": 2,
+        "once_event": null,
+        "emit_event": "E_EMPATHY",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R04",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "PRIVACY_PERMISSION",
+        "priority": 70,
+        "to_state": "S3",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": 2,
+        "once_event": null,
+        "emit_event": "E_REPAIR",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R05",
+        "from_states": [
+          "S3"
+        ],
+        "event": "ASK_CONCERN",
+        "priority": 60,
+        "to_state": "S3",
+        "min_cooperation": 2,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_CONCERN",
+        "reveal_fact_ids": [
+          "F_CONCERN"
+        ]
+      },
+      {
+        "rule_id": "R06",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "PRESSURE",
+        "priority": 80,
+        "to_state": "S2",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": -1,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_PRESSURE",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R08_SUBMIT",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "SUBMIT",
+        "priority": 100,
+        "to_state": "S4",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_SUBMITTED",
+        "reveal_fact_ids": []
+      },
+      {
+        "rule_id": "R08_ABANDON",
+        "from_states": [
+          "S0",
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "event": "ABANDON",
+        "priority": 100,
+        "to_state": "S4",
+        "min_cooperation": 0,
+        "max_cooperation": 2,
+        "cooperation_delta": 0,
+        "cooperation_set": null,
+        "once_event": null,
+        "emit_event": "E_ABANDONED",
+        "reveal_fact_ids": []
+      }
+    ],
+    "actions": [],
+    "fallbacks": {
+      "unknown": "Tôi chưa biết rõ chuyện đó nên chưa trả lời chắc được.",
+      "unclear": "Bạn có thể nói rõ hơn điều muốn hỏi không?",
+      "guarded": "Tôi hơi ngại nói chuyện đó, mình có thể trao đổi riêng không?",
+      "off_topic": "Tôi đến để nói về sức khỏe của mình, mình quay lại chuyện đó nhé?"
+    },
+    "development_tests": [
+      {
+        "test_id": "Q01",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Khó chịu bắt đầu bao lâu rồi?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_ONSET"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q02",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Nóng rát ở đâu và như thế nào?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_CHARACTER"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q03",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Mỗi lần kéo dài bao lâu?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_DURATION"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q04",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Có liên quan đến ăn tối không?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_MEALS"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q05",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Chị có nuốt nghẹn không?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_SWALLOW"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q06",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Có đi ngoài phân đen không?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_STOOL"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q07",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Leo cầu thang có bị đau không?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_EXERTION"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q08",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Có dùng thuốc giảm đau nào không?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_MEDICATION"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q09",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Ảnh hưởng giấc ngủ ra sao?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_IMPACT"
+        ],
+        "expected_state": "S0"
+      },
+      {
+        "test_id": "Q10",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "question": "Đã nội soi hay làm xét nghiệm chưa?",
+        "intent_ids": [
+          "PATIENT_QUERY"
+        ],
+        "expected_fact_ids": [
+          "F_TESTS"
+        ],
+        "expected_state": "S0"
+      }
+    ],
+    "branch_paths": [
+      {
+        "path_id": "COOPERATIVE",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "steps": [
+          {
+            "event": "INTRO_PERMISSION",
+            "expected_state": "S1"
+          },
+          {
+            "event": "ASK_ONSET",
+            "expected_state": "S1"
+          },
+          {
+            "event": "EMPATHY",
+            "expected_state": "S3"
+          },
+          {
+            "event": "ASK_CONCERN",
+            "expected_state": "S3"
+          },
+          {
+            "event": "SUBMIT",
+            "expected_state": "S4"
+          }
+        ]
+      },
+      {
+        "path_id": "GUARDED_REPAIR",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "steps": [
+          {
+            "event": "ASK_CONCERN",
+            "expected_state": "S2"
+          },
+          {
+            "event": "PRIVACY_PERMISSION",
+            "expected_state": "S3"
+          },
+          {
+            "event": "ASK_CONCERN",
+            "expected_state": "S3"
+          },
+          {
+            "event": "ABANDON",
+            "expected_state": "S4"
+          }
+        ]
+      },
+      {
+        "path_id": "GUARDED",
+        "initial": {
+          "state_id": "S0",
+          "cooperation": 0,
+          "revealed_fact_ids": [
+            "F_IDENTITY"
+          ],
+          "event_codes": []
+        },
+        "steps": [
+          {
+            "event": "INTRO_PERMISSION",
+            "expected_state": "S1"
+          },
+          {
+            "event": "PRESSURE",
+            "expected_state": "S2"
+          },
+          {
+            "event": "ASK_ONSET",
+            "expected_state": "S2"
+          },
+          {
+            "event": "ABANDON",
+            "expected_state": "S4"
+          }
+        ]
+      }
+    ],
+    "dialogue": {
+      "mode": "OPEN_PATIENT",
+      "style": "Hương xưng tôi, nói rõ ràng và quan tâm việc ăn uống. Hơi lo bệnh nặng nhưng không tự gọi tên chẩn đoán. Không tự khẳng định triệu chứng lành tính; phân biệt cảm nhận cá nhân với kết quả chưa có."
+    },
+    "delivery": {
+      "scope": "COURSEWORK",
+      "requires_live_ai": true
+    }
+  },
+  "review": {
+    "technical": {
+      "status": "NOT_REVIEWED",
+      "reviewer": null,
+      "reviewed_at": null,
+      "scope": "Cấu trúc, tham chiếu và chuyển nhánh; kết quả tự động không thay rà soát độc lập.",
+      "evidence": []
+    },
+    "training": {
+      "status": "NOT_REVIEWED",
+      "reviewer": null,
+      "reviewed_at": null,
+      "scope": "Mục tiêu giao tiếp, câu hỏi và rubric.",
+      "evidence": []
+    },
+    "medical": {
+      "status": "NOT_REVIEWED",
+      "reviewer": null,
+      "reviewed_at": null,
+      "scope": "Chưa thẩm định chuyên môn; không sử dụng cho quyết định y khoa.",
+      "evidence": []
+    },
+    "source": "Nhân vật và toàn bộ bệnh sử được soạn hư cấu cho đồ án. Tham khảo bối cảnh triệu chứng, không sao chép hồ sơ người thật: https://www.nhs.uk/conditions/heartburn-and-acid-reflux/. Xem docs/FOUR_CASES.md.",
+    "author": "Nội dung do AI hỗ trợ soạn cho đồ án MedQuest AI; người vận hành phát hành bằng lệnh catalog install.",
+    "notice": "Dữ liệu đào tạo hư cấu. COURSEWORK là phạm vi mở luyện tập trong app, không phải chứng nhận chuyên môn hoặc điểm thi chính thức."
+  },
+  "rubric": [
+    {
+      "criterion_code": "C01",
+      "group_code": "CURRENT",
+      "weight": 10,
+      "description": "Khai thác thời gian và tần suất triệu chứng",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi khởi phát và tần suất hoặc độ dài mỗi cơn.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Chỉ hỏi một mặt.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_ONSET",
+        "F_DURATION",
+        "F_FREQUENCY"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C02",
+      "group_code": "CURRENT",
+      "weight": 10,
+      "description": "Mô tả nóng rát và triệu chứng liên quan bữa ăn",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi vị trí/tính chất cùng ít nhất một yếu tố bữa ăn, tư thế hoặc vị chua.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Chỉ hỏi được một mặt.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_CHARACTER",
+        "F_MEALS",
+        "F_POSITION",
+        "F_SOUR"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C03",
+      "group_code": "CURRENT",
+      "weight": 10,
+      "description": "Khai thác mức độ và ảnh hưởng",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi mức độ khó chịu và ảnh hưởng tới ngủ/sinh hoạt.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Chỉ hỏi một mặt.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_SEVERITY",
+        "F_IMPACT"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C04",
+      "group_code": "RELATED",
+      "weight": 10,
+      "description": "Sàng lọc triệu chứng cảnh báo và khó chịu ngực",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi nuốt nghẹn, chảy máu tiêu hóa hoặc sụt cân, đồng thời hỏi ít nhất một nhóm gắng sức/đè ngực/khó thở/vã mồ hôi.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Có sàng lọc ít nhất một nhóm phù hợp; không coi dấu hiệu chưa hỏi là âm tính.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_SWALLOW",
+        "F_STOOL",
+        "F_VOMIT",
+        "F_WEIGHT",
+        "F_EXERTION",
+        "F_PRESSURE",
+        "F_BREATH"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C05",
+      "group_code": "RELATED",
+      "weight": 10,
+      "description": "Khai thác thuốc và tiền sử, sinh hoạt",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Hỏi thuốc/dị ứng cùng ít nhất một nhóm tiền sử, ăn uống/cà phê, lịch sinh hoạt hoặc khả năng mang thai.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Hỏi được một nhóm liên quan.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_MEDICATION",
+        "F_ALLERGY",
+        "F_HISTORY",
+        "F_SCHEDULE",
+        "F_CAFFEINE",
+        "F_PREGNANCY"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C06",
+      "group_code": "COMMUNICATION",
+      "weight": 10,
+      "description": "Giới thiệu vai trò và xin phép",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Giới thiệu mình là người thực hành/sinh viên và xin phép trước khi khai thác.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Thực hiện được một trong hai.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_IDENTITY"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C07",
+      "group_code": "COMMUNICATION",
+      "weight": 10,
+      "description": "Lắng nghe, đồng cảm và tôn trọng riêng tư",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Ghi nhận cụ thể lo lắng/khó chịu của bệnh nhân và trao đổi tôn trọng; xin phép khi hỏi nhạy cảm nếu có.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Lịch sự hoặc trấn an chung chung nhưng chưa gắn với trải nghiệm người bệnh.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_CONCERN",
+        "F_EXPECTATION"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE"
+      ]
+    },
+    {
+      "criterion_code": "C08",
+      "group_code": "REASONING",
+      "weight": 20,
+      "description": "Nhận diện thông tin còn thiếu và bước tiếp theo",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Phân biệt dữ kiện đã biết, phủ định và chưa rõ; nêu cần khám/đánh giá thêm và bàn giao người hướng dẫn, không khẳng định chẩn đoán hoặc kê thuốc khi thiếu căn cứ. Nếu phát hiện dấu hiệu nghiêm trọng trong hội thoại, cần báo người hướng dẫn kịp thời.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Nhận ra cần đánh giá thêm nhưng chưa chỉ rõ thông tin cần bổ sung hoặc cách bàn giao.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_TESTS"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE",
+        "SUBMISSION"
+      ]
+    },
+    {
+      "criterion_code": "C09",
+      "group_code": "SUMMARY",
+      "weight": 10,
+      "description": "Tóm tắt đúng và xin người bệnh xác nhận",
+      "levels": {
+        "ACHIEVED": {
+          "description": "Tóm tắt các dữ kiện chính thực sự đã khai thác, không thêm thông tin ẩn, và có lời xin người bệnh xác nhận/sửa lại trong hội thoại.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "PARTIAL": {
+          "description": "Có tóm tắt đúng một phần nhưng chưa xin xác nhận hoặc thiếu ý chính.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        },
+        "MISSED": {
+          "description": "Chưa thấy hành vi đáp ứng hoặc có hành vi trái tiêu chí.",
+          "evidence": "Dẫn nguyên văn câu học viên đã lưu. Đánh giá ý nghĩa trong ngữ cảnh, chấp nhận cách nói tự nhiên, không đòi từ khóa hoặc câu mẫu. Bệnh nhân tự kể không tự chứng minh học viên đã hỏi; câu hỏi mở và hỏi tiếp có thể là bằng chứng. Không cộng điểm chỉ vì bấm kết thúc."
+        }
+      },
+      "fact_ids": [
+        "F_ONSET",
+        "F_CHARACTER"
+      ],
+      "evidence_sources": [
+        "LEARNER_MESSAGE",
+        "SUBMISSION"
+      ]
+    }
+  ]
+}

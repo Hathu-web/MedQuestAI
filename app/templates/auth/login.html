@@ -1,0 +1,15 @@
+{% extends 'auth/layout.html' %}
+{% from 'auth/_fields.html' import field_row %}
+{% block auth_content %}
+<span class="auth-icon"><i class="bi bi-person-check" aria-hidden="true"></i></span>
+<p class="eyebrow">CHÀO MỪNG BẠN TRỞ LẠI</p><h2 id="form-title">Đăng nhập MedQuest</h2>
+<p class="auth-description">Tiếp tục với tài khoản của bạn.</p>
+<form method="post" action="{{ url_for('auth.login') }}" class="auth-form" novalidate>
+  {{ form.hidden_tag() }}
+  {{ field_row(form.email, 'username', autofocus=true) }}
+  {{ field_row(form.password, 'current-password') }}
+  {{ form.submit(class='mq-button mq-primary auth-submit') }}
+</form>
+<p class="auth-switch">Chưa có tài khoản? <a href="{{ url_for('auth.register') }}">Đăng ký học viên</a></p>
+{% if config.PREVIEW_ENABLED %}<a class="auth-preview" href="{{ url_for('simulation.room') }}"><i class="bi bi-arrow-left" aria-hidden="true"></i> Khám phá phòng xem trước</a>{% endif %}
+{% endblock %}
